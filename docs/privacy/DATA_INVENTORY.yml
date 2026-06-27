@@ -1,0 +1,68 @@
+system: Market Guardian
+status: v0
+defaults:
+  raw_frame_persistence_enabled: false
+  biometric_identification_enabled: false
+  face_recognition_enabled: false
+data_classes:
+  - name: detection_event
+    purpose: object and zone metadata for reconciliation
+    personal_information_risk: medium
+    retained_by_default: true
+    retention: derived_event_retention_days
+    fields:
+      - event_id
+      - timestamp_ms
+      - label
+      - zone
+      - confidence
+      - bbox
+  - name: customer_track
+    purpose: anonymous customer-agent session state
+    personal_information_risk: medium
+    retained_by_default: false
+    retention: session_ttl_or_case_retention
+    fields:
+      - track_id
+      - zone
+      - track_purity
+      - status
+  - name: basket_hypothesis
+    purpose: evidence-bound item hypothesis
+    personal_information_risk: medium
+    retained_by_default: case_bound
+    retention: case_retention_days
+    fields:
+      - sku
+      - label
+      - evidence_id
+      - confidence
+  - name: pos_event
+    purpose: checkout reconciliation
+    personal_information_risk: medium
+    retained_by_default: true
+    retention: store_accounting_policy
+    fields:
+      - event_id
+      - sku
+      - price
+      - timestamp_ms
+  - name: cash_close_event
+    purpose: end-of-day reconciliation
+    personal_information_risk: low
+    retained_by_default: true
+    retention: case_retention_days
+    fields:
+      - event_id
+      - expected_cash
+      - counted_cash
+      - mismatch
+  - name: audit_hash
+    purpose: tamper-evident event integrity
+    personal_information_risk: low
+    retained_by_default: true
+    retention: audit_hash_retention_days
+    fields:
+      - sequence
+      - previous_hash
+      - entry_hash
