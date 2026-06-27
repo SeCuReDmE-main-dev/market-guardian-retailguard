@@ -39,11 +39,38 @@ Market Guardian / RetailGuard treats the store as a local cyber-physical system:
 - Neutro measures truth, contradiction, uncertainty, and divergence;
 - human operators receive review-required cases, not verdicts.
 
+## Construction Philosophy
+
+This project is built as two parallel construction spaces that meet only through explicit integration decisions. Jean-Sébastien's space carries human-origin concepts: intuition, field experience, neutrosophic theory, naming, ethics, and local reality. Codex's space carries AI-origin engineering work: implementation discipline, tests, interfaces, invariants, code structure, and safety checks.
+
+The AI construction space is not autonomous authority. It is bounded engineering contribution. The system treats AI output as a construction artifact that must be reviewed, traced, and integrated through a human-readable decision record before becoming part of the shared tool.
+
+### Jean-Sébastien Construction Space
+
+This space holds the lived problem, the naming force, the philosophical frame, the ethical line, and the local business reality. It is where V.O.T Guardian, V.I.S Guardian, Neutro, and the retail-protection mission are shaped as human-origin direction before they become implementation contracts.
+
+### Codex Construction Space
+
+This space holds the software skeleton: deterministic models, tests, interfaces, validation rules, repository hygiene, safety language, privacy boundaries, and reproducible workflows. It exists to turn creative direction into code that can survive repeated change.
+
+### Integration Space
+
+The two spaces remain parallel until an `IntegrationDecision` records what human-origin artifact, Codex-origin artifact, accepted output, rationale, and timestamp were merged. This makes the tool a joint construction without pretending that both builders contribute in the same way.
+
+Knowledge is distributed intentionally: theory and intent live in `docs/construction/`, visual primitives live in `docs/vision/`, code contracts live in `src/`, executable checks live in `tests/`, and durable architecture memory lives in `.architecte-zero/`.
+
 ## Core Architecture
 
 The intended foundation is CodeProject.AI Server plus YOLO-compatible detection. CodeProject.AI is used as the local vision/backend anchor because it can run near the cameras and expose detector responses through a service boundary.
 
 Neutro is the public name for the neutrosophic swarm governor. It is responsible for keeping agent output disciplined, evidence-bound, and contradiction-aware.
+
+V.I.S Guardian is the visual integrity module. It turns visual primitives such as contour, motion, saliency, occlusion, track continuity, object presence, and scene contradiction into evidence-bound signals that Neutro can score.
+
+| Module | Sense layer | Role |
+| --- | --- | --- |
+| `V.O.T Guardian` | Auditory primitives | Event and signal-quality patterns from sound. |
+| `V.I.S Guardian` | Visual primitives | Scene, motion, occlusion, and track-continuity evidence. |
 
 The build order is:
 
@@ -167,11 +194,15 @@ These functions protect the machine layer from prompt injection, sensor spoofing
 ## Repository Layout
 
 - `src/neutro/` contains mathematical scoring and decision primitives.
+- `src/vision/` contains V.I.S Guardian visual primitives and Neutro bridge helpers.
+- `src/construction/` contains dual construction-space provenance models.
 - `src/evidence/` contains evidence events and ledger structures.
 - `src/swarm/` contains customer, basket, cash, review, and orchestrator agents.
 - `src/detectors/` contains detector adapters.
 - `src/simulator/` contains deterministic replay scenarios.
 - `src/privacy/` contains retention helper code.
+- `docs/construction/` contains dual construction-space and integration protocol documents.
+- `docs/vision/` contains visual primitive learning and implementation notes.
 - `docs/concept_inventory/` contains the first mandatory case-study inventory.
 - `docs/privacy/` contains Law 25 oriented governance artifacts.
 - `tests/` contains the current unit test suite.

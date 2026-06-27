@@ -19,6 +19,8 @@ support, and privacy-aware human review.
 
 Public model boundary:
 The public-facing mathematical and agent-governance name is Neutro.
+The public visual integrity module name is V.I.S Guardian.
+The public auditory primitive module name is V.O.T Guardian.
 Private research names, unpublished model names, and internal naming
 used by SecuredMe are not part of this public project identity and must
 not be introduced into public package paths, routes, UI text, public

@@ -21,5 +21,8 @@ The repository is public and pre-alpha. The first public base contains source co
 - Deterministic reconciliation remains authority.
 - LLMs explain or review only from evidence-bound inputs.
 - Neutro is the only public model name.
+- V.I.S Guardian is the public visual integrity module name.
+- V.O.T Guardian is the public auditory primitive module name.
+- Jean-Sébastien Construction Space and Codex Construction Space remain parallel until an explicit integration decision joins artifacts.
 - Human review is required for ambiguity.
 - The system does not make autonomous enforcement decisions.

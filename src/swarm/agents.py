@@ -53,6 +53,7 @@ class CustomerAgent:
     ttl_ms: int = 30 * 60 * 1000
     status: CustomerAgentStatus = CustomerAgentStatus.ACTIVE
     track_purity: float = 1.0
+    visual_primitive_ids: list[str] = field(default_factory=list)
     basket: BasketHypothesisAgent = field(init=False)
 
     def __post_init__(self) -> None:
@@ -78,3 +79,9 @@ class CustomerAgent:
     def expire_if_needed(self, now_ms: int) -> None:
         if now_ms - self.created_at_ms > self.ttl_ms:
             self.status = CustomerAgentStatus.EXITED
+
+    def record_visual_primitives(self, primitive_ids: list[str]) -> None:
+        for primitive_id in primitive_ids:
+            if not primitive_id:
+                raise ValueError("primitive_id is required")
+        self.visual_primitive_ids.extend(primitive_ids)
