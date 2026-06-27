@@ -1,0 +1,24 @@
+name: Project note
+description: Non-security note for the maintainer during pre-alpha.
+title: "[note] "
+labels: ["status:pre-alpha"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This repository is pre-alpha and is not accepting pull requests yet.
+        Do not include real customer data, camera frames, credentials, POS records, or personal information.
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Describe the note without sensitive operational data.
+    validations:
+      required: true
+  - type: textarea
+    id: suggested_action
+    attributes:
+      label: Suggested action
+      description: What should change later, if anything?
+    validations:
+      required: false

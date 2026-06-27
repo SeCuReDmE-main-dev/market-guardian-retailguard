@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security reports
+    url: https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/security/advisories/new
+    about: Report security issues privately when GitHub advisories are enabled.
+  - name: Project status
+    url: https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard#status
+    about: Read the current project status before opening public discussion.

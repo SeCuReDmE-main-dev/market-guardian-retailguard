@@ -1,0 +1,20 @@
+[
+  {
+    "source": "SPDX License List",
+    "url": "https://spdx.org/licenses",
+    "verified_date": "2026-06-27",
+    "use": "Confirmed SPDX identifier selection for AGPL-3.0-or-later."
+  },
+  {
+    "source": "GNU AGPL v3 text",
+    "url": "https://www.gnu.org/licenses/agpl-3.0.txt",
+    "verified_date": "2026-06-27",
+    "use": "Official license text used for LICENSE."
+  },
+  {
+    "source": "GitHub Actions setup-python",
+    "url": "https://github.com/actions/setup-python",
+    "verified_date": "2026-06-27",
+    "use": "CI workflow uses setup-python v5."
+  }
+]
