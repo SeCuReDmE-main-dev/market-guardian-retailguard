@@ -1,5 +1,8 @@
 # Market Guardian / RetailGuard
 
+> **Development status.** This school tool is currently tagged **pre-alpha / in development**. External PRs are not evaluated for merge until the maintained tool reaches a stable, fully functional 100% classroom release after the pre-alpha phase. Issues and forks remain allowed, but official PR review is paused until that stability gate is met.
+
+
 Market Guardian / RetailGuard is an open source, local-first retail protection system for small markets, depanneurs, grocery stores, and local food operators. The project exists to show that cybersecurity is not only a web problem. Local stores also have security surfaces: cameras, point-of-sale events, inventory movement, cash closeout, operator workflows, model prompts, detector output, and human review.
 
 > **Official school governance.** This repo is for supervised cybersecurity and retail-safety education. It is not an accusation, surveillance-abuse, theft, fraud, or enforcement tool. The maintained classroom route supports Codex/OpenAI or Antigravity/Gemini only. See [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) and [AGENTS.md](AGENTS.md).
@@ -264,3 +267,5 @@ AGPL plus `NOTICE` should only be applied to another repository after explicit a
 Pull requests are not accepted yet.
 
 The current focus is to stabilize the core architecture, tests, privacy posture, and white paper foundation before opening contribution intake. See `CONTRIBUTING.md`.
+
+
