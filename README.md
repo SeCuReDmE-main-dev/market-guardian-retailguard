@@ -4,6 +4,14 @@
 
 **Attribution:** Jean-Sebastien Beaulieu · [ORCID 0009-0007-2904-0443](https://orcid.org/0009-0007-2904-0443) · [SecuredMe](https://securedme.ca) · [RetailGuard](https://retailguard.securedme.ca)
 
+<!-- SECUREDME-SUITE-BADGES:START -->
+[![Issues](https://img.shields.io/github/issues/SeCuReDmE-main-dev/market-guardian-retailguard?color=161B6A)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/issues)
+[![Milestones](https://img.shields.io/badge/milestones-M0--M7-23B8FF)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/milestones)
+[![Project Board](https://img.shields.io/badge/project-kanban-6F42FF)](https://github.com/users/SeCuReDmE-main-dev/projects/3)
+[![Branch](https://img.shields.io/badge/branch-main-0E7490)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/tree/main)
+<!-- SECUREDME-SUITE-BADGES:END -->
+
+
 
 ## School Authentication And Secret Boundary
 This repository is a small SecuredMe school tool. Official classroom use must not require `.env` files, API keys, raw tokens, or local model secrets. Student and teacher workflows must use Codex/OpenAI or Antigravity/Gemini through browser WebAuth, fingerprinted session approval, and encrypted local session records when authentication is needed.
@@ -279,6 +287,7 @@ AGPL plus `NOTICE` should only be applied to another repository after explicit a
 Pull requests are not accepted yet.
 
 The current focus is to stabilize the core architecture, tests, privacy posture, and white paper foundation before opening contribution intake. See `CONTRIBUTING.md`.
+
 
 
 
