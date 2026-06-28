@@ -1,38 +1,19 @@
-Market Guardian / RetailGuard
-Copyright (C) 2026 Jean-Sébastien Beaulieu
+Secured Educational License 2.0 Notice
 
-Author and project originator:
-Jean-Sébastien Beaulieu
+Primary author and maintainer:
+
+Jean-Sebastien Beaulieu
 ORCID: https://orcid.org/0009-0007-2904-0443
+SecuredMe
 
-License:
-This project is licensed under the GNU Affero General Public License,
-version 3 or later. The SPDX license identifier is:
+This project defines the SEL-2.0 and SECL-2.0 license texts and companion
+policy documents for educational software, classroom tooling, research
+scaffolds, simulation tools, supervised student/teacher learning environments,
+and defensive educational cybersecurity tools.
 
-AGPL-3.0-or-later
+SEL-2.0 uses the custom SPDX-compatible identifier:
 
-Project identity:
-Market Guardian / RetailGuard is an open source, local-first retail
-protection system for small markets, depanneurs, grocery stores, and
-local operators who need affordable evidence reconciliation, inventory
-support, and privacy-aware human review.
+- LicenseRef-SEL-2.0
+- LicenseRef-SECL-2.0
 
-Public model boundary:
-The public-facing mathematical and agent-governance name is Neutro.
-The public visual integrity module name is V.I.S Guardian.
-The public auditory primitive module name is V.O.T Guardian.
-Private research names, unpublished model names, and internal naming
-used by SecuredMe are not part of this public project identity and must
-not be introduced into public package paths, routes, UI text, public
-documentation, datasets, white paper artifacts, or release material.
-
-Safety boundary:
-This project is designed to surface unresolved contradiction, ambiguity,
-and review-required cases. It must not be used to make autonomous
-enforcement decisions or to present machine output as a final accusation.
-
-Third-party components:
-Third-party dependencies, models, datasets, and services keep their own
-licenses and terms. Integrators are responsible for validating the
-licenses, model terms, camera-system obligations, and privacy duties that
-apply to their deployment.
+These identifiers are not currently part of the official SPDX License List.

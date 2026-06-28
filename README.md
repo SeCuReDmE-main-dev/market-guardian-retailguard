@@ -4,6 +4,8 @@ Market Guardian / RetailGuard is an open source, local-first retail protection s
 
 > **Official school governance.** This repo is for supervised cybersecurity and retail-safety education. It is not an accusation, surveillance-abuse, theft, fraud, or enforcement tool. The maintained classroom route supports Codex/OpenAI or Antigravity/Gemini only. See [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) and [AGENTS.md](AGENTS.md).
 
+> **License.** This market visual helper for small-store protection uses the Secured Educational Cybersecurity License 2.0 (`LicenseRef-SECL-2.0`). See [LICENSE](LICENSE), [NOTICE](NOTICE), and [DISCLAIMER](DISCLAIMER).
+
 The goal is not to build an autonomous accusation machine. The goal is to reconcile evidence, measure contradiction, preserve privacy, and hand a clear review package to a human operator when the system cannot explain what happened with enough confidence.
 
 This repository is currently a builder-facing foundation until the public website and polished product documentation exist.
@@ -82,7 +84,7 @@ The build order is:
 4. dataset loaders and replay tools;
 5. NSS white paper dossier.
 
-LLMs are not the authority for facts. Deterministic reconciliation is the authority. LLMs may explain, summarize, or help review through Codex, Antigravity/Gemini, Ollama cloud, or compatible endpoints, but only when the underlying evidence chain is available.
+LLMs are not the authority for facts. Deterministic reconciliation is the authority. In the maintained school route, LLMs may explain, summarize, or help review through Codex/OpenAI or Antigravity/Gemini only, and only when the underlying evidence chain is available. Other local or cloud model endpoints are not official classroom providers.
 
 ## Swarm Model
 
@@ -231,18 +233,18 @@ Invoke-WebRequest http://localhost:32168
 
 ## License
 
-This project is licensed under the GNU Affero General Public License, version 3 or later:
+This project is licensed under the Secured Educational Cybersecurity License 2.0:
 
-`AGPL-3.0-or-later`
+`LicenseRef-SECL-2.0`
 
-The license is intentionally strong copyleft because this system is networked, local-server oriented, and safety-sensitive. Improvements that are deployed as services should remain available to the people relying on the system.
+The license is intentionally education- and cybersecurity-specific because this system is safety-sensitive, local-store oriented, and abuse-prone if misused. It is provided for defensive training, supervised review, fraud-awareness education, and small-store protection research, not accusation, enforcement, unsafe surveillance, or criminal automation.
 
 Attribution:
 
 Jean-Sébastien Beaulieu  
 ORCID: https://orcid.org/0009-0007-2904-0443
 
-See `LICENSE`, `NOTICE`, and `LICENSE_POLICY.md`.
+See `LICENSE`, `NOTICE`, `DISCLAIMER`, and `LICENSE_POLICY.md`.
 
 ## Public Repo Rollout
 
