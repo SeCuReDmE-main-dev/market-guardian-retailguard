@@ -2,6 +2,8 @@
 
 Market Guardian / RetailGuard is an open source, local-first retail protection system for small markets, depanneurs, grocery stores, and local food operators. The project exists to show that cybersecurity is not only a web problem. Local stores also have security surfaces: cameras, point-of-sale events, inventory movement, cash closeout, operator workflows, model prompts, detector output, and human review.
 
+> **Official school governance.** This repo is for supervised cybersecurity and retail-safety education. It is not an accusation, surveillance-abuse, theft, fraud, or enforcement tool. The maintained classroom route supports Codex/OpenAI or Antigravity/Gemini only. See [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) and [AGENTS.md](AGENTS.md).
+
 The goal is not to build an autonomous accusation machine. The goal is to reconcile evidence, measure contradiction, preserve privacy, and hand a clear review package to a human operator when the system cannot explain what happened with enough confidence.
 
 This repository is currently a builder-facing foundation until the public website and polished product documentation exist.
