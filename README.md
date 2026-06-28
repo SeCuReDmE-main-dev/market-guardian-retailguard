@@ -19,7 +19,7 @@ Market Guardian / RetailGuard is an open source, local-first retail protection s
 
 > **Official school governance.** This repo is for supervised cybersecurity and retail-safety education. It is not an accusation, surveillance-abuse, theft, fraud, or enforcement tool. The maintained classroom route supports Codex/OpenAI or Antigravity/Gemini only. See [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) and [AGENTS.md](AGENTS.md).
 
-> **License.** This market visual helper for small-store protection uses the Secured Educational Cybersecurity License 2.0 (`LicenseRef-SECL-2.0`). See [LICENSE](LICENSE), [NOTICE](NOTICE), and [DISCLAIMER](DISCLAIMER).
+> **License.** This market visual helper for small-store protection uses the Secured Educational Cybersecurity License 2.0 (SECL-2.0). See [LICENSE](LICENSE), [NOTICE](NOTICE), and [DISCLAIMER](DISCLAIMER).
 
 The goal is not to build an autonomous accusation machine. The goal is to reconcile evidence, measure contradiction, preserve privacy, and hand a clear review package to a human operator when the system cannot explain what happened with enough confidence.
 
@@ -250,7 +250,7 @@ Invoke-WebRequest http://localhost:32168
 
 This project is licensed under the Secured Educational Cybersecurity License 2.0:
 
-`LicenseRef-SECL-2.0`
+SECL-2.0
 
 The license is intentionally education- and cybersecurity-specific because this system is safety-sensitive, local-store oriented, and abuse-prone if misused. It is provided for defensive training, supervised review, fraud-awareness education, and small-store protection research, not accusation, enforcement, unsafe surveillance, or criminal automation.
 
@@ -279,6 +279,7 @@ AGPL plus `NOTICE` should only be applied to another repository after explicit a
 Pull requests are not accepted yet.
 
 The current focus is to stabilize the core architecture, tests, privacy posture, and white paper foundation before opening contribution intake. See `CONTRIBUTING.md`.
+
 
 
 
