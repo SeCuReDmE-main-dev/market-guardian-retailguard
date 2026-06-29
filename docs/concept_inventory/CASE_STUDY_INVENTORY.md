@@ -5,7 +5,7 @@ Status: first coding action completed.
 Source root:
 
 ```text
-C:\Users\jeans\Desktop\Case study
+[local maintainer path redacted]
 ```
 
 Purpose: extract reusable concepts, implementation patterns, risks, and validation discipline before scaffolding Market Guardian / RetailGuard.
