@@ -1,0 +1,25 @@
+{
+  "name": "securedme-market-guardian-antigravity-adapter",
+  "displayName": "Market Guardian Antigravity Adapter",
+  "description": "Market Guardian retail learning adapter.",
+  "version": "0.1.0",
+  "publisher": "SecuredMe",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Education"
+  ],
+  "activationEvents": [
+    "onCommand:securedme.marketguardian.openAdapter"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "securedme.marketguardian.openAdapter",
+        "title": "SecuredMe: Open Market Guardian Adapter"
+      }
+    ]
+  }
+}
