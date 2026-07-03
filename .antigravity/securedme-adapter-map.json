@@ -6,6 +6,7 @@
     "name": "Market Guardian",
     "path": "market-guardian-retailguard",
     "canonical_domain": "market-guardian.securedme.ca",
+    "canonical_route": "https://securedme.ca/education/apps/market-guardian/",
     "status": "pre-alpha"
   },
   "platform": "antigravity",
