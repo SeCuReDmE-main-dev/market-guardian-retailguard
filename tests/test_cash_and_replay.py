@@ -22,6 +22,14 @@ class CashAndReplayTests(unittest.TestCase):
             summary="Operator review needed.",
         )
         self.assertEqual("ambiguous_event", case.status)
+        self.assertEqual("market-guardian:review-case:case-1", case.algoquest_event["artifact_ref"])
+        self.assertEqual("market-guardian", case.algoquest_event["app_slug"])
+        self.assertFalse(case.algoquest_event["raw_secret_stored"])
+        serialized_event = str(case.algoquest_event)
+        self.assertNotIn("Operator review needed.", serialized_event)
+        self.assertNotIn("event-1", serialized_event)
+        self.assertNotIn("student_name", serialized_event)
+        self.assertNotIn("api_key", serialized_event)
         with self.assertRaises(ValueError):
             agent.open_case(
                 case_id="case-2",

@@ -7,6 +7,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
+from src.algoquest_qbit_adapter import build_review_case_learning_event
 from src.privacy import RetentionPolicy
 
 
@@ -16,6 +17,7 @@ class ReviewCase:
     status: str
     evidence_ids: tuple[str, ...]
     summary: str
+    algoquest_event: dict
 
 
 class HumanReviewAgent:
@@ -35,4 +37,5 @@ class HumanReviewAgent:
             status=status,
             evidence_ids=tuple(evidence_ids),
             summary=summary,
+            algoquest_event=build_review_case_learning_event(case_id, status=status),
         )
