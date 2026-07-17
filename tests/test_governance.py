@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: LicenseRef-SECL-2.0
 # Copyright (C) 2026 Jean-Sébastien Beaulieu
 
 from __future__ import annotations
@@ -52,17 +52,16 @@ class GovernanceFileTests(unittest.TestCase):
     def test_license_and_notice_identity(self) -> None:
         license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
         notice_text = (ROOT / "NOTICE").read_text(encoding="utf-8")
-        self.assertIn("GNU AFFERO GENERAL PUBLIC LICENSE", license_text)
-        self.assertIn("Version 3, 19 November 2007", license_text)
-        self.assertIn("AGPL-3.0-or-later", notice_text)
+        self.assertIn("Secured Educational Cybersecurity License 2.0", license_text)
+        self.assertIn("LicenseRef-SECL-2.0", license_text)
+        self.assertIn("LicenseRef-SECL-2.0", notice_text)
         self.assertIn("https://orcid.org/0009-0007-2904-0443", notice_text)
-        self.assertIn("Neutro", notice_text)
 
     def test_project_python_files_have_spdx_headers(self) -> None:
         missing: list[str] = []
         for path in [*ROOT.joinpath("src").rglob("*.py"), *ROOT.joinpath("tests").rglob("*.py")]:
             text = path.read_text(encoding="utf-8")
-            if "SPDX-License-Identifier: AGPL-3.0-or-later" not in text:
+            if "SPDX-License-Identifier: LicenseRef-SECL-2.0" not in text:
                 missing.append(str(path.relative_to(ROOT)))
             if "Copyright (C) 2026 Jean-Sébastien Beaulieu" not in text:
                 missing.append(str(path.relative_to(ROOT)))
