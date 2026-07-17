@@ -1,4 +1,4 @@
-# SPDX-License-Identifier: AGPL-3.0-or-later
+# SPDX-License-Identifier: LicenseRef-SECL-2.0
 # Copyright (C) 2026 Jean-Sébastien Beaulieu
 
 """Bounded agents for one-customer-at-a-time tracking."""
