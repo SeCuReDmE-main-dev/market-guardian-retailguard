@@ -1,44 +1,43 @@
 # Contributing
 
-## SecuredMe Education Governance Alignment
+## SecuredMe Education Governance
 
-- Current phase: pre-alpha / in development.
-- Repository license: Secured Educational Cybersecurity License 2.0 (SECL-2.0), local metadata reference LicenseRef-SECL-2.0.
-- Official AI-assisted classroom routes: Codex/OpenAI and Antigravity/Gemini only.
-- Do not add Ollama Cloud, uncensored local AI, raw-token student flows, or unknown agent providers as official school routes.
-- Cybersecurity, fraud-awareness, protection, or abuse-prevention behavior must stay defensive and supervised.
-- Preserve human-review boundaries; do not claim production, clinical, regulatory, enforcement, safety-critical, or autonomous authority readiness.
-- Private modified copies, broken forks, and unreviewed rewrites are not a maintainer support obligation.
+This repository is part of the SecuredMe Education suite and is currently pre-alpha. Contribution intake is intentionally conservative until the alpha classroom stability gate is reached.
 
+- Tool: Market Guardian / RetailGuard
+- License: Secured Educational Cybersecurity License 2.0 (SECL-2.0)
+- Local metadata reference: LicenseRef-SECL-2.0
+- Operational branch: main
+- Official classroom AI routes: Codex/OpenAI and Antigravity/Gemini only
+- Gateway stance: gateway-compatible when the shared SecuredMe gateway lane is configured; this repository must not store gateway secrets
 
-Market Guardian / RetailGuard is not accepting pull requests yet.
+## What Helps
 
-The project is still stabilizing its architecture, privacy posture, safety language, licensing, and evidence model. Reviewing outside patches before those foundations are stable would create avoidable risk for a safety-sensitive system.
+Useful public issues include reproducible bugs, documentation gaps, test failures, accessibility problems, unclear student/teacher flows, and evidence-bound safety wording improvements.
 
-## Current Policy
+Future code contributions should be small, test-backed, and scoped to this tool. They must preserve the suite hierarchy, the local secret boundary, human review, and the documented gateway contract.
 
-- Pull requests are closed until contribution intake opens.
-- Security reports should follow `SECURITY.md`.
-- Licensing questions should follow `LICENSE_POLICY.md`.
-- Public discussion must avoid real customer data, camera frames, credentials, POS records, and personally identifying information.
+## What Is Not Accepted
 
-## Local Validation
+Do not submit or request:
 
-Before any future contribution path opens, project-owned changes should pass:
+- API keys, tokens, cookies, .env values, private cPanel details, private student data, or private correspondence;
+- raw-token student flows or browser-session export;
+- Ollama Cloud, uncensored local AI, unknown model providers, or unsupported agent routes as official school behavior;
+- autonomous enforcement, clinical, regulatory, safety-critical, or production-readiness claims;
+- offensive, abusive, fraud, bypass, credential theft, surveillance-abuse, or criminal automation workflows;
+- broad rewrites that make the maintained classroom version harder to audit.
 
-```powershell
+## Validation
+
+Before maintainer-owned changes are pushed, run the narrow validation for this tool when available:
+
+`powershell
 python -m unittest discover -s tests -v
-python -m compileall -q src tests
-```
+`
 
-## Future Contribution Gate
+If the validation surface is not available on the machine, document the blocker in the issue or commit notes without inventing a passing result.
 
-Contribution intake should only open after:
+## Security Reports
 
-- the public API surface is stable enough to review;
-- privacy and retention policies are settled;
-- the CodeProject.AI integration boundary is documented;
-- test fixtures avoid personal information;
-- dependency licensing has been inventoried;
-- safety-language rules are enforced by tests;
-- the maintainer has published a review process.
+Security issues must follow SECURITY.md. Do not publish exploit details, credentials, personal data, private files, or operational infrastructure details in a public issue.

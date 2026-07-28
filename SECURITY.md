@@ -1,104 +1,36 @@
 # Security Policy
 
-## SecuredMe Education Governance Alignment
+## Supported Versions
 
-- Current phase: pre-alpha / in development.
-- Repository license: Secured Educational Cybersecurity License 2.0 (SECL-2.0), local metadata reference LicenseRef-SECL-2.0.
-- Official AI-assisted classroom routes: Codex/OpenAI and Antigravity/Gemini only.
-- Do not add Ollama Cloud, uncensored local AI, raw-token student flows, or unknown agent providers as official school routes.
-- Cybersecurity, fraud-awareness, protection, or abuse-prevention behavior must stay defensive and supervised.
-- Preserve human-review boundaries; do not claim production, clinical, regulatory, enforcement, safety-critical, or autonomous authority readiness.
-- Private modified copies, broken forks, and unreviewed rewrites are not a maintainer support obligation.
+Market Guardian / RetailGuard is pre-alpha. There are no production-supported versions yet. Security fixes target the current main branch unless a maintainer explicitly publishes another supported line.
 
+## Scope
 
-Market Guardian / RetailGuard is a safety-sensitive local retail protection system. Security issues can affect people, store operators, cameras, POS data, inventory records, AI agents, and privacy obligations.
-
-## Current Support Status
-
-The project is pre-release and unstable. There are no supported production versions yet.
-
-Do not deploy this repository as a production enforcement system without an independent security, privacy, and legal review.
+Security-sensitive areas include defensive retail education, camera/POS privacy, evidence reconciliation, and human review. Reports should focus on real behavior in this repository or on its documented gateway boundary.
 
 ## Responsible Disclosure
 
-Please report security issues privately to the project maintainer before public disclosure. If GitHub Security Advisories are enabled for the public repository, use that path first. If not, use a private maintainer contact channel and include enough detail to reproduce the issue without exposing real customer data or camera footage.
+Report security issues privately to the maintainer before public disclosure. If GitHub Security Advisories are enabled, use that channel first. If not, use a private maintainer channel and include enough detail to reproduce without exposing secrets or personal data.
 
 Useful report content:
 
-- affected file, module, endpoint, or workflow;
+- affected file, route, module, command, or workflow;
 - reproduction steps;
-- expected behavior;
-- observed behavior;
-- impact;
-- whether real personal information, camera frames, POS records, or credentials were exposed;
+- expected and observed behavior;
+- impact and affected users;
+- whether credentials, personal information, student data, private evidence, or operational details were exposed;
 - proposed fix, if known.
 
-Do not include raw camera frames, biometric identifiers, secrets, customer identities, or real POS records in a public issue.
+## Secret Boundary
 
-## Non-Autonomous Safety Boundary
+Never commit or disclose API keys, OAuth tokens, cookies, browser sessions, .env values, passwords, cPanel details, payment credentials, private corpora, raw student records, production logs, or unpublished research material.
 
-The system must not make autonomous enforcement decisions.
+The shared SecuredMe gateway may route configured audit, observability, and assistant handoff metadata. This repository must not expose gateway secrets, provider tokens, or private operator state in README files, tests, logs, exceptions, screenshots, or issue reports.
 
-Machine output can request review, identify unresolved contradiction, describe evidence divergence, or highlight ambiguity. A human operator remains responsible for interpretation and action.
+## AI And Human Review Boundary
 
-## Privacy And Law 25 Posture
-
-The version 1 posture is:
-
-- no face recognition;
-- no biometric identification;
-- no identity matching;
-- no raw-frame persistence by default;
-- anonymous temporary `track_id` instead of personal identity;
-- retention and destruction controls;
-- operator audit trail;
-- incident register;
-- privacy impact assessment before production use.
-
-Report a security issue if a change weakens these defaults, stores raw frames silently, creates identity linkage, extends retention without a policy, or bypasses the operator audit trail.
-
-## Model And Agent Security
-
-Report issues involving:
-
-- prompt injection that changes safety rules;
-- agent output that is not evidence-bound;
-- basket updates without evidence references;
-- cross-person track contamination;
-- detector spoofing;
-- replay poisoning;
-- ledger tampering;
-- cash closeout manipulation;
-- cost-governor bypass;
-- model drift that hides ambiguity;
-- logs that expose sensitive camera, POS, or operator data.
-
-## Secrets And Credentials
-
-Never commit:
-
-- API keys;
-- POS credentials;
-- camera passwords;
-- model provider tokens;
-- customer data;
-- raw camera frames;
-- production logs with personal information.
-
-Use local environment variables or deployment-specific secret storage. Keep `.env` files out of version control.
-
-## Dependency And Model Supply Chain
-
-Before production use, integrators must validate:
-
-- Python dependency licenses and vulnerabilities;
-- YOLO model source and license;
-- CodeProject.AI module terms;
-- dataset rights;
-- cloud LLM endpoint terms;
-- camera and POS vendor terms;
-- Quebec Law 25 obligations and any other applicable law.
+Official school AI routes are Codex/OpenAI and Antigravity/Gemini only. Model output must remain advisory and reviewable. Do not convert this tool into autonomous authority, enforcement, diagnosis, grading, legal decision-making, or unsupervised production safety infrastructure.
 
 ## Public Issues
 
-Do not open public issues containing exploit details, live camera information, credentials, real customer records, or enough operational detail to compromise a store. Use private disclosure first.
+Do not open public issues containing exploit payloads, live credentials, personal data, private student information, customer records, camera/audio samples, payment secrets, or enough operational detail to compromise a deployment.
