@@ -1,0 +1,37 @@
+schema: securedme.tool-doc.v2
+slug: retailguard
+title: Market Guardian / RetailGuard
+version: pre-alpha
+status: public-preview
+license: LicenseRef-SECL-2.0
+summary: A defensive retail-security learning environment focused on explainable safeguards
+  and review.
+identity:
+  logo: assets/logo/logo dark/5.png
+  family: Market Guardian / RetailGuard
+runtime:
+  type: browser-app
+  availability: verified
+  public_url: https://market-guardian.securedme.ca
+source:
+  repository: https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard
+  issues: https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/issues
+documentation:
+  public_root: docs/public
+  source_language: en
+  languages:
+  - en
+  - fr
+  - es
+commands:
+  install:
+  - python -m venv .venv
+  - .venv\Scripts\python -m pip install -r requirements.txt
+  start:
+  - Consult README.md for the selected supervised scenario
+  test:
+  - .venv\Scripts\python -m pytest
+boundaries:
+  authority: RetailGuard is for prevention, simulation, and supervised defensive education
+    only.
+  human_review_required: true
