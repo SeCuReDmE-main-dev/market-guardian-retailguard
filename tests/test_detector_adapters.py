@@ -3,7 +3,7 @@
 
 import unittest
 
-from src.detectors import Detection, FakeDetectorAdapter
+from src.detectors import CodeProjectDetectorAdapter, Detection, FakeDetectorAdapter
 
 
 class DetectorAdapterTests(unittest.TestCase):
@@ -14,6 +14,12 @@ class DetectorAdapterTests(unittest.TestCase):
         detections = adapter.detect("frame-1", zone="aisle")
         self.assertEqual("apple", detections[0].label)
         self.assertEqual((1, 2, 3, 4), detections[0].bbox)
+
+    def test_live_adapter_requires_a_bounded_image_file(self):
+        adapter = CodeProjectDetectorAdapter()
+        self.assertEqual("http://127.0.0.1:32174", adapter.base_url)
+        with self.assertRaisesRegex(ValueError, "approved image file"):
+            adapter.detect("missing-frame.jpg", zone="aisle")
 
 
 if __name__ == "__main__":

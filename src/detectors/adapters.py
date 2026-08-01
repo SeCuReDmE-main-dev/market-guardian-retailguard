@@ -11,7 +11,10 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import json
+import mimetypes
+from pathlib import Path
 from typing import Protocol
+import uuid
 from urllib.request import Request, urlopen
 
 
@@ -51,21 +54,40 @@ class FakeDetectorAdapter:
 
 
 class CodeProjectDetectorAdapter:
-    def __init__(self, base_url: str = "http://localhost:32168") -> None:
+    def __init__(self, base_url: str = "http://127.0.0.1:32174") -> None:
         self.base_url = base_url.rstrip("/")
 
     def detect(self, frame_ref: str, *, zone: str) -> list[Detection]:
         if not frame_ref:
             raise ValueError("frame_ref is required")
-        payload = json.dumps({"frame_ref": frame_ref, "zone": zone}).encode("utf-8")
+        if not zone:
+            raise ValueError("zone is required")
+        path = Path(frame_ref)
+        if not path.is_file() or not 0 < path.stat().st_size <= 20 * 1024 * 1024:
+            raise ValueError("frame_ref must be an approved image file no larger than 20 MiB")
+        boundary = f"----retailguard-{uuid.uuid4().hex}"
+        mime = mimetypes.guess_type(path.name)[0] or "application/octet-stream"
+        payload = b"".join(
+            (
+                f'--{boundary}\r\nContent-Disposition: form-data; name="zone"\r\n\r\n{zone}\r\n'.encode(),
+                f'--{boundary}\r\nContent-Disposition: form-data; name="image"; filename="frame{path.suffix}"\r\nContent-Type: {mime}\r\n\r\n'.encode(),
+                path.read_bytes(),
+                f"\r\n--{boundary}--\r\n".encode(),
+            )
+        )
         request = Request(
             f"{self.base_url}/v1/vision/detection",
             data=payload,
-            headers={"Content-Type": "application/json"},
+            headers={
+                "Content-Type": f"multipart/form-data; boundary={boundary}",
+                "X-CPAI-Forwarded": "true",
+            },
             method="POST",
         )
-        with urlopen(request, timeout=5) as response:
-            body = json.loads(response.read().decode("utf-8"))
+        with urlopen(request, timeout=120) as response:
+            body = json.loads(response.read(4 * 1024 * 1024).decode("utf-8"))
+        if not isinstance(body, dict) or body.get("success") is not True:
+            raise RuntimeError("CodeProject.AI detection did not complete")
         predictions = body.get("predictions", [])
         detections = []
         for index, item in enumerate(predictions):
