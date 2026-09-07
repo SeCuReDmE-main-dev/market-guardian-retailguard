@@ -1,0 +1,157 @@
+{
+  "schema": "securedme.webmcp.fixtures.v1",
+  "tools": {
+    "retailguard_run_checkout_replay": {
+      "validInput": {},
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_run_visual_replay": {
+      "validInput": {
+        "scenario": "fixture"
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_score_agent_evidence": {
+      "validInput": {
+        "evidence": []
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_decide_recalibration": {
+      "validInput": {
+        "evidence": []
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_reconcile_cash_close": {
+      "validInput": {
+        "expected": 1,
+        "counted": 1
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_score_visual_state": {
+      "validInput": {
+        "scenario": "fixture"
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_open_review_case": {
+      "validInput": {
+        "caseId": "fixture",
+        "evidenceIds": [],
+        "summary": "fixture"
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "staged"
+    },
+    "retailguard_append_evidence_event": {
+      "validInput": {
+        "eventId": "fixture",
+        "kind": "fixture",
+        "payload": {}
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "staged"
+    },
+    "retailguard_verify_evidence_ledger": {
+      "validInput": {
+        "events": []
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "retailguard_detect_approved_image": {
+      "validInput": {
+        "assetRef": "fixture",
+        "approval": {
+          "id": "approval:fixture",
+          "humanConfirmed": true
+        },
+        "idempotencyKey": "fixture-idempotency-0001"
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "unavailable",
+      "unauthorizedInput": {
+        "assetRef": "fixture",
+        "idempotencyKey": "fixture-idempotency-0001"
+      },
+      "expectedUnauthorizedStatus": "unavailable"
+    },
+    "securedme_companion_context": {
+      "validInput": {},
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "completed"
+    },
+    "securedme_qbit_plan_handoff": {
+      "validInput": {
+        "missionRef": "fixture",
+        "summary": "fixture"
+      },
+      "invalidInput": {
+        "unexpected": true
+      },
+      "expectedStatus": "staged"
+    }
+  },
+  "journeys": [
+    [
+      "securedme_companion_context",
+      "retailguard_run_checkout_replay",
+      "securedme_qbit_plan_handoff"
+    ],
+    [
+      "securedme_companion_context",
+      "retailguard_run_visual_replay",
+      "securedme_qbit_plan_handoff"
+    ],
+    [
+      "securedme_companion_context",
+      "retailguard_score_agent_evidence",
+      "securedme_qbit_plan_handoff"
+    ],
+    [
+      "securedme_companion_context",
+      "retailguard_decide_recalibration",
+      "securedme_qbit_plan_handoff"
+    ],
+    [
+      "securedme_companion_context",
+      "retailguard_reconcile_cash_close",
+      "securedme_qbit_plan_handoff"
+    ],
+    [
+      "securedme_companion_context",
+      "retailguard_score_visual_state",
+      "securedme_qbit_plan_handoff"
+    ]
+  ]
+}

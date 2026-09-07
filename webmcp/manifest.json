@@ -1,0 +1,412 @@
+{
+  "schema": "securedme.webmcp.v1",
+  "product": {
+    "slug": "retailguard",
+    "canonicalStateOwner": "algoquest"
+  },
+  "slug": "retailguard",
+  "canonicalStateOwner": "algoquest",
+  "tools": [
+    {
+      "name": "retailguard_run_checkout_replay",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Run a synthetic checkout replay with no customer data.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "missedScan": {
+            "type": "boolean"
+          },
+          "cashMismatch": {
+            "type": "number"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_run_visual_replay",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Run one named synthetic visual replay fixture.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "scenario"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_score_agent_evidence",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Score explicit evidence and contradiction references.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "maxItems": 128
+          },
+          "graphComplexity": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_decide_recalibration",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Return a bounded recalibration recommendation from supplied evidence.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "evidence": {
+            "type": "array",
+            "maxItems": 128
+          },
+          "graphComplexity": {
+            "type": "number"
+          },
+          "trackPurity": {
+            "type": "number"
+          },
+          "unsupportedClaims": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "evidence"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_reconcile_cash_close",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Compare declared fixture cash totals for operator review.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "expected": {
+            "type": "number"
+          },
+          "counted": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "expected",
+          "counted"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_score_visual_state",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Score a synthetic visual state already admitted by the caller.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "scenario": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "scenario"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_open_review_case",
+      "mode": "STAGE",
+      "effect": "STAGE",
+      "description": "Stage a human review case; never accuse or enforce.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "caseId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "evidenceIds": {
+            "type": "array",
+            "maxItems": 128
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "caseId",
+          "evidenceIds",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_append_evidence_event",
+      "mode": "STAGE",
+      "effect": "STAGE",
+      "description": "Stage a tamper-evident metadata event in an ephemeral ledger.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "eventId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "payload": {
+            "type": "object"
+          },
+          "timestampMs": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "eventId",
+          "kind",
+          "payload"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_verify_evidence_ledger",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Verify a supplied metadata-only ledger fixture.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "events": {
+            "type": "array",
+            "maxItems": 128
+          }
+        },
+        "required": [
+          "events"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "retailguard_detect_approved_image",
+      "mode": "EXECUTE",
+      "effect": "EXECUTE",
+      "description": "Run approved local image detection when the configured runtime is available.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "assetRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "approval": {
+            "type": "object"
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "runtimeConfigured": {
+            "type": "boolean"
+          },
+          "expectedApprovalId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "assetRef",
+          "approval",
+          "idempotencyKey"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "unavailable",
+      "handler": {
+        "kind": "unavailable",
+        "module": "src.webmcp"
+      },
+      "unavailableReason": "Verified local detector runtime and admitted asset resolver are not configured."
+    },
+    {
+      "name": "securedme_companion_context",
+      "mode": "READ",
+      "effect": "READ",
+      "description": "Return the sanitized RetailGuard specialist projection.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "required": [],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    },
+    {
+      "name": "securedme_qbit_plan_handoff",
+      "mode": "STAGE",
+      "effect": "STAGE",
+      "description": "Prepare a Qbit return proposal without changing progression.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "missionRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
+          }
+        },
+        "required": [
+          "missionRef",
+          "summary"
+        ],
+        "additionalProperties": false
+      },
+      "outputSchema": {
+        "type": "object"
+      },
+      "availability": "available",
+      "handler": {
+        "kind": "python",
+        "module": "src.webmcp"
+      }
+    }
+  ],
+  "boundaries": {
+    "authority": "Human review owns any decision.",
+    "secrets": "No credentials or raw frames are returned.",
+    "externalWrites": "Only ephemeral staged evidence is produced.",
+    "heroProgression": "AlgoQuest alone owns Hero Book progression.",
+    "biometrics": false,
+    "accusations": false,
+    "enforcement": false,
+    "rawFrameRetention": false
+  },
+  "theme": {
+    "source": "assets/landing/secureme.ca-product/education/V.I.S Guardian/desing/stitch_v.i.s_guardian_landing_page/stitch_v.i.s_guardian_landing_page/premium_cyber_heritage/DESIGN.md",
+    "sourceStatus": "verified_stitch_retailguard_mapping"
+  }
+}
