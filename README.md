@@ -44,6 +44,10 @@ python -m compileall -q src tests
 
 ## Practice exercise
 
+### Construction Philosophy
+
+The [dual construction spaces](docs/construction/DUAL_CONSTRUCTION_SPACES.md) distinguish the Jean-Sébastien Construction Space, where the author develops the research and product interpretation, from the Codex Construction Space, where software artifacts and tests are prepared. The [Integration Space](docs/construction/INTEGRATION_PROTOCOL.md) brings them together through explicit human review and evidence. Neither space alone establishes operational readiness.
+
 Review a synthetic retail signal, record uncertainty and an alternative explanation, then decide what evidence a human would need before acting.
 
 During an individual course, learners choose suite tools to practice. The eight-week final project is the learner's own tool, submitted by the learner to an eligible hackathon after checking its age, AI, originality and licensing rules.
