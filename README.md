@@ -1,331 +1,65 @@
-<div align="center">
-
 # Market Guardian / RetailGuard
 
-<!-- SECUREDME-ZENODO:START -->
-<p align="center">
-  <a href="https://doi.org/10.5281/zenodo.21893183"><img alt="Zenodo DOI: 10.5281/zenodo.21893183" src="https://img.shields.io/badge/Zenodo%20DOI-10.5281%2Fzenodo.21893183-1682D4?style=for-the-badge" /></a>
-</p>
-<!-- SECUREDME-ZENODO:END -->
+![Market Guardian / RetailGuard — SecuredMe Education](docs/assets/repository/readme-banner-2026.png)
 
-<!-- SECUREDME-CPAI-MESH:START -->
-<p align="center">
-  <img alt="CodeProject.AI Server embedded mesh node" src="https://img.shields.io/badge/CodeProject.AI%20Server-Embedded%20Mesh%20Node-1F6FEB?style=for-the-badge" />
-  <img alt="YOLO real local inference validated" src="https://img.shields.io/badge/YOLO-Real%20Local%20Inference-16A34A?style=for-the-badge" />
-</p>
-<!-- SECUREDME-CPAI-MESH:END -->
+[![License SECL-2.0](https://img.shields.io/badge/license-SECL--2.0-6F42FF)](LICENSE)
+[![Pre-alpha](https://img.shields.io/badge/status-pre--alpha-0E7490)](AGENTS.md)
+[![Issues](https://img.shields.io/github/issues/SeCuReDmE-main-dev/market-guardian-retailguard)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/issues)
+[![Main history](https://img.shields.io/github/last-commit/SeCuReDmE-main-dev/market-guardian-retailguard/main)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/commits/main/)
+[![SPONSORED BY E2B FOR STARTUPS](https://img.shields.io/badge/SPONSORED%20BY-E2B%20FOR%20STARTUPS-ff3001?style=for-the-badge&labelColor=black)](https://e2b.dev/startups)
 
-[Embedded CodeProject.AI node operations](infra/codeproject-ai/README.md)
+Practice evidence-aware retail workflows, uncertainty and human review.
 
-[![SecuredMe Education Suite public calendar](https://img.shields.io/badge/SecuredMe%20Education%20Suite-public%20calendar%20%7C%20pre--alpha%20%7C%20active%20public%20development-5484ED?style=for-the-badge&logo=googlecalendar&logoColor=white)](https://calendrier.securedme.ca)
+[Public surface](https://market-guardian.securedme.ca/) · [Tool documentation](https://securedme-main-dev.github.io/securedme-scholarium/en/tools/retailguard/) · [Education hub](https://securedme.ca/product/education/)
 
-</div>
+**Status:** pre-alpha, active public development. Public pages and a successful local test do not establish a deployed school service. E2B sponsorship recognition is separate from runtime availability and included quota.
 
-**Attribution:** Jean-Sebastien Beaulieu · [ORCID 0009-0007-2904-0443](https://orcid.org/0009-0007-2904-0443) · [SecuredMe](https://securedme.ca) · [RetailGuard](https://retailguard.securedme.ca)
+## How it works
 
-<!-- SECUREDME-SUITE-BADGES:START -->
-[![Issues](https://img.shields.io/github/issues/SeCuReDmE-main-dev/market-guardian-retailguard?color=161B6A)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/issues)
-[![Milestones](https://img.shields.io/badge/milestones-M0--M7-23B8FF)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/milestones)
-[![Project Board](https://img.shields.io/badge/project-kanban-6F42FF)](https://github.com/users/SeCuReDmE-main-dev/projects/3)
-[![Branch](https://img.shields.io/badge/branch-main-0E7490)](https://github.com/SeCuReDmE-main-dev/market-guardian-retailguard/tree/main)
-<!-- SECUREDME-SUITE-BADGES:END -->
+The local source and tests model bounded retail review. The public landing explains the product; it does not establish access to live cameras, customer data or operational enforcement.
 
-<!-- SECUREDME-STARTUP-SUPPORT:START -->
-<p align="center">
-  <a href="https://e2b.dev/startups">
-    <img alt="Gateway-ready E2B audit lane" src="https://img.shields.io/badge/Gateway--ready-E2B%20audit%20lane-FF8800?style=for-the-badge" />
-  </a>
-  <a href="https://www.datadoghq.com/partner/datadog-for-startups/">
-    <img alt="Gateway-ready Datadog observability" src="https://img.shields.io/badge/Gateway--ready-Datadog%20observability-632CA6?style=for-the-badge&amp;logo=datadog&amp;logoColor=white" />
-  </a>
-</p>
+## Local development
 
-> **Gateway support acknowledgement.** This SecuredMe school tool is gateway-compatible. E2B audit support and Datadog observability are routed through the shared SecuredMe gateway when that lane is configured; this repository does not claim a direct E2B or Datadog runtime dependency by default, and no E2B or Datadog secret is stored in this README.
-<!-- SECUREDME-STARTUP-SUPPORT:END -->
+Record the checkout and existing changes before editing:
 
-> **Maintainer intake during active finishing week.** This repository is maintained directly on `main` by the SecuredMe maintainer. Public issues are open for bug reports, documentation corrections, security-safe observations, and reproducible feedback, but opening an issue does not promise a response or a delivery date. Pull requests are not accepted during the active code-finishing week; use issues only until this notice is replaced.
+```powershell
+git status --short --branch
+git rev-parse HEAD
+```
 
+Review the source entry points and repository-specific requirements linked below before installing. Optional container, model, API and infrastructure routes require separate availability checks. Do not start external services or copy private environment files into a classroom checkout.
 
-
-
-## School Authentication And Secret Boundary
-This repository is a small SecuredMe school tool. Official classroom use must not require `.env` files, API keys, raw tokens, or local model secrets. Student and teacher workflows must use Codex/OpenAI or Antigravity/Gemini through browser WebAuth, fingerprinted session approval, and encrypted local session records when authentication is needed.
-
-Both host adapters implement the shared `securedme.education.webauth-template.v1` policy and are auditable through the Gateway. That proves policy compatibility, not a deployed Market Guardian login. Provider callback, account binding, session expiry, logout, recovery, and accessible browser acceptance remain required before live-login claims.
-
-The reason for excluding generic local AI routes from official school mode is student and teacher safety: education accounts, provider-side account controls, browser login, and governed AI refusal behavior are safer than unguided local model endpoints for classroom cybersecurity and algorithm-building tools.
-
-> **Development status.** This school tool is currently **pre-alpha — active public development**. Public issues remain open for intake, but no response or delivery date is promised. Pull requests are paused during active development.
-
-> **SecuredMe Education visual theme.** This pre-alpha school tool uses the shared SecuredMe Education open-source visual identity without changing its SECL license boundary. See [assets/securedme/education](assets/securedme/education) for light/dark logo and thin banner assets.
-
-
-Market Guardian / RetailGuard is an open source, local-first retail protection system for small markets, depanneurs, grocery stores, and local food operators. The project exists to show that cybersecurity is not only a web problem. Local stores also have security surfaces: cameras, point-of-sale events, inventory movement, cash closeout, operator workflows, model prompts, detector output, and human review.
-
-> **Official school governance.** This repo is for supervised cybersecurity and retail-safety education. It is not an accusation, surveillance-abuse, theft, fraud, or enforcement tool. The maintained classroom route supports Codex/OpenAI or Antigravity/Gemini only. See [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) and [AGENTS.md](AGENTS.md).
-
-> **License.** This project uses the Secured Educational Cybersecurity License 2.0 (SECL-2.0). It is provided for defensive education, fraud-awareness, simulation, and supervised cyber training. Offensive workflows, unsafe surveillance, credential theft, fraud, bypass, and criminal automation are not maintained or endorsed by the official school version. See [LICENSE](LICENSE), [NOTICE](NOTICE), [DISCLAIMER](DISCLAIMER), and [SAFETY.md](SAFETY.md).
-
-The goal is not to build an autonomous accusation machine. The goal is to reconcile evidence, measure contradiction, preserve privacy, and hand a clear review package to a human operator when the system cannot explain what happened with enough confidence.
-
-This repository is currently a builder-facing foundation until the public website and polished product documentation exist.
-
-## Status
-
-This project is unstable and under active construction.
-
-Public issues are open for reproducible reports, documentation corrections, and security-safe observations, without any promised response or delivery date. Pull requests are not accepted during the active code-finishing week.
-
-Current foundation:
-
-- concept inventory from the local case-study corpus;
-- Neutro mathematical scoring primitives;
-- deterministic evidence events and hash-chain ledger;
-- customer-scoped swarm agents;
-- basket evidence guardrails;
-- cash closeout reconciliation;
-- Law 25 oriented privacy documents;
-- simulator replay scenarios;
-- unit tests for core guardrails.
-
-## Mission
-
-Small stores face loss, inventory drift, cash mismatches, and operational mistakes without the budget for enterprise retail-protection tooling. A local-first system should let them use existing cameras, POS exports, inventory data, and affordable AI endpoints while keeping human review in control.
-
-Market Guardian / RetailGuard treats the store as a local cyber-physical system:
-
-- cameras produce visual observations;
-- detectors produce bounded facts;
-- POS produces transaction events;
-- inventory systems produce stock movement;
-- cash closeout produces end-of-day balances;
-- agents maintain scoped hypotheses;
-- Neutro measures truth, contradiction, uncertainty, and divergence;
-- human operators receive review-required cases, not verdicts.
-
-## Construction Philosophy
-
-This project is built as two parallel construction spaces that meet only through explicit integration decisions. Jean-Sébastien's space carries human-origin concepts: intuition, field experience, neutrosophic theory, naming, ethics, and local reality. Codex's space carries AI-origin engineering work: implementation discipline, tests, interfaces, invariants, code structure, and safety checks.
-
-The AI construction space is not autonomous authority. It is bounded engineering contribution. The system treats AI output as a construction artifact that must be reviewed, traced, and integrated through a human-readable decision record before becoming part of the shared tool.
-
-### Jean-Sébastien Construction Space
-
-This space holds the lived problem, the naming force, the philosophical frame, the ethical line, and the local business reality. It is where V.O.T Guardian, V.I.S Guardian, Neutro, and the retail-protection mission are shaped as human-origin direction before they become implementation contracts.
-
-### Codex Construction Space
-
-This space holds the software skeleton: deterministic models, tests, interfaces, validation rules, repository hygiene, safety language, privacy boundaries, and reproducible workflows. It exists to turn creative direction into code that can survive repeated change.
-
-### Integration Space
-
-The two spaces remain parallel until an `IntegrationDecision` records what human-origin artifact, Codex-origin artifact, accepted output, rationale, and timestamp were merged. This makes the tool a joint construction without pretending that both builders contribute in the same way.
-
-Knowledge is distributed intentionally: theory and intent live in `docs/construction/`, visual primitives live in `docs/vision/`, code contracts live in `src/`, executable checks live in `tests/`, and durable architecture memory lives in `.architecte-zero/`.
-
-## Core Architecture
-
-The intended foundation is CodeProject.AI Server plus YOLO-compatible detection. CodeProject.AI is used as the local vision/backend anchor because it can run near the cameras and expose detector responses through a service boundary.
-
-Neutro is the public name for the neutrosophic swarm governor. It is responsible for keeping agent output disciplined, evidence-bound, and contradiction-aware.
-
-V.I.S Guardian is the visual integrity module. It turns visual primitives such as contour, motion, saliency, occlusion, track continuity, object presence, and scene contradiction into evidence-bound signals that Neutro can score.
-
-| Module | Sense layer | Role |
-| --- | --- | --- |
-| `V.O.T Guardian` | Auditory primitives | Event and signal-quality patterns from sound. |
-| `V.I.S Guardian` | Visual primitives | Scene, motion, occlusion, and track-continuity evidence. |
-
-The build order is:
-
-1. simulator and specification;
-2. CodeProject.AI-compatible module patterns;
-3. dashboard and operator review surface;
-4. dataset loaders and replay tools;
-5. NSS white paper dossier.
-
-LLMs are not the authority for facts. Deterministic reconciliation is the authority. In the maintained school route, LLMs may explain, summarize, or help review through Codex/OpenAI or Antigravity/Gemini only, and only when the underlying evidence chain is available. Other local or cloud model endpoints are not official classroom providers.
-
-## Swarm Model
-
-The system uses scoped agents instead of one global free-form model:
-
-- `StoreOrchestrator` supervises cameras, POS, inventory, cash, privacy, and machine health.
-- `CustomerAgent` is spawned for one anonymous `track_id` when a customer enters.
-- `MiniYoloWorker` runs bounded detector work for shelf, basket, checkout, or exit zones.
-- `BasketHypothesisAgent` maintains possible basket state with references to evidence.
-- `CashCloseAgent` reconciles end-of-day cash, POS, and inventory movement.
-- `HumanReviewAgent` packages ambiguity for a human operator.
-
-Each customer agent must stay attached to one anonymous track. If track purity fails, the agent freezes and escalates the case for human review.
-
-## Neutro Guardrails
-
-Agent output is restricted to:
-
-- `observed`;
-- `inferred`;
-- `unknown`.
-
-A basket item cannot be added without one of these references:
-
-- `detection_id`;
-- `pos_id`;
-- `inventory_event_id`;
-- `synthetic_replay_id`.
-
-The system tracks:
-
-- `T_system`;
-- `I_system`;
-- `F_system`;
-- `dF`;
-- `D_f_hat`.
-
-The hierarchy is preserved:
-
-`I -> I_system^S -> D_f -> dF -> i_fractal`
-
-The purpose is to keep uncertainty structured instead of letting a model flatten ambiguity into a confident story.
-
-## Retail Workflows
-
-Normal workflow:
-
-1. A customer enters the store.
-2. An anonymous track is created.
-3. A scoped customer agent is spawned.
-4. Detector events, shelf events, basket hypotheses, POS scans, and checkout events are reconciled.
-5. If evidence aligns, no review package is created.
-6. If evidence conflicts or ambiguity rises, the human operator receives a review-required case.
-
-Cash closeout workflow:
-
-1. POS totals, cash drawer count, and inventory movement are loaded.
-2. The cash agent computes the mismatch.
-3. Small mismatch cases remain operational notes.
-4. A threshold such as `$100+` triggers a deeper evidence review.
-5. The system packages ambiguous intervals and evidence references for human review.
-
-Replay scenarios currently covered include normal checkout, missed scan, duplicate scan, returned item, occlusion, track split, ambiguous item, and cash mismatch.
-
-## Law 25 And Privacy Defaults
-
-This project is designed with Quebec Law 25 posture in mind. It is not legal advice and must be reviewed by qualified counsel before production deployment.
-
-Version 1 defaults:
-
-- no face recognition;
-- no biometric identification;
-- no identity tracking;
-- no raw-frame persistence by default;
-- temporary anonymous `track_id` instead of personal identity;
-- data minimization;
-- retention and destruction planning;
-- operator audit trail;
-- incident register;
-- privacy impact assessment;
-- human review for ambiguous cases.
-
-Privacy documents live under `docs/privacy/`.
-
-## Safety Language
-
-Operator-facing language must stay non-accusatory. Preferred terms:
-
-- `review required`;
-- `unresolved contradiction`;
-- `ambiguous event`;
-- `cash mismatch review`;
-- `evidence divergence`.
-
-The system must not tell staff that a person committed an act. It can only say that the evidence does not reconcile and that a human needs to review the case.
-
-## Machine Protection
-
-This repository also treats the AI structure itself as something that needs protection.
-
-Machine-protection functions planned in the architecture:
-
-- `model_prompt_integrity_firewall`;
-- `sensor_integrity_sentinel`;
-- `evidence_chain_ledger`;
-- `resource_cost_governor`;
-- `machine_health_drift_monitor`.
-
-These functions protect the machine layer from prompt injection, sensor spoofing, corrupted evidence, uncontrolled cost, model drift, and degraded detector quality.
-
-## Repository Layout
-
-- `src/neutro/` contains mathematical scoring and decision primitives.
-- `src/vision/` contains V.I.S Guardian visual primitives and Neutro bridge helpers.
-- `src/construction/` contains dual construction-space provenance models.
-- `src/evidence/` contains evidence events and ledger structures.
-- `src/swarm/` contains customer, basket, cash, review, and orchestrator agents.
-- `src/detectors/` contains detector adapters.
-- `src/simulator/` contains deterministic replay scenarios.
-- `src/privacy/` contains retention helper code.
-- `docs/construction/` contains dual construction-space and integration protocol documents.
-- `docs/vision/` contains visual primitive learning and implementation notes.
-- `docs/concept_inventory/` contains the first mandatory case-study inventory.
-- `docs/privacy/` contains Law 25 oriented governance artifacts.
-- `tests/` contains the current unit test suite.
-
-## Development Commands
-
-Run tests:
+Run the relevant local checks from the repository root; the indicated `Set-Location` is needed only when starting from that root:
 
 ```powershell
 python -m unittest discover -s tests -v
-```
-
-Compile-check source and tests:
-
-```powershell
 python -m compileall -q src tests
 ```
 
-Optional future live CodeProject.AI check:
+## Source map
 
-```powershell
-Invoke-WebRequest http://localhost:32168
-```
+- [src](src)
+- [tests](tests)
+- [web/landing/index.html](web/landing/index.html)
 
-## License
+## Practice exercise
 
-This project is licensed under the Secured Educational Cybersecurity License 2.0:
+Review a synthetic retail signal, record uncertainty and an alternative explanation, then decide what evidence a human would need before acting.
 
-SECL-2.0
+During an individual course, learners choose suite tools to practice. The eight-week final project is the learner's own tool, submitted by the learner to an eligible hackathon after checking its age, AI, originality and licensing rules.
 
-The license is intentionally education- and cybersecurity-specific because this system is safety-sensitive, local-store oriented, and abuse-prone if misused. It is provided for defensive training, supervised review, fraud-awareness education, and small-store protection research, not accusation, enforcement, unsafe surveillance, or criminal automation.
+## Boundaries and privacy
 
-Attribution:
+No accusation, autonomous enforcement, validated deployment or legal-compliance claim follows from a simulated signal. Use synthetic data and role-appropriate private review.
 
-Jean-Sébastien Beaulieu  
-ORCID: https://orcid.org/0009-0007-2904-0443
+The official school routes are Codex/OpenAI and Antigravity/Gemini with human review. Never distribute raw tokens, learner data, prompts or private correspondence. No hidden learner analytics are added. Public analytics require explicit consent; general autocapture and session replay remain disabled. Optional local technical telemetry is separate from learner records and product audit history.
 
-See `LICENSE`, `NOTICE`, `DISCLAIMER`, and `LICENSE_POLICY.md`.
+See [AGENTS.md](AGENTS.md) and [SCHOOL_TOOL_GOVERNANCE.md](SCHOOL_TOOL_GOVERNANCE.md) for current authority and provider boundaries. Maintainer-authorized maintenance follows repository protections and required reviews. General contribution restrictions remain governed by [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Public Repo Rollout
+## License, authorship and history
 
-This repository does not automatically change any other public repository. Other repositories must be inventoried first:
+The repository's actual license is [SECL-2.0](LICENSE). Keep the license, attribution, notices and safety boundaries when reusing the code.
 
-- public/private status;
-- whether the tool is original to the author;
-- existing license;
-- dependency licenses;
-- public documentation impact;
-- recommended action.
+Jean-Sebastien Beaulieu · [ORCID 0009-0007-2904-0443](https://orcid.org/0009-0007-2904-0443) · [SecuredMe](https://securedme.ca/)
 
-AGPL plus `NOTICE` should only be applied to another repository after explicit approval for that specific repository.
-
-## Contribution Policy
-
-During the active code-finishing week, contribution intake is issue-only. The current focus is to stabilize the core architecture, tests, privacy posture, and white paper foundation. See `CONTRIBUTING.md`.
-
-
-
-
-
-
-
+[README source before curation](docs/archive/README-before-curation-2026-09-30.txt) retains the exact previous text, implementation journals and attribution. It is historical: its old telemetry commands, readiness claims and contribution dates are not current operating instructions. [Presentation history](docs/repository-presentation-history-2026-09-30.md) retains previous badges. [GitHub social image](docs/assets/repository/github-social-preview-2026.jpg) accompanies this README.
